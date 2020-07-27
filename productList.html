@@ -14,36 +14,36 @@
     <div class="container" id="app">
         <validation-observer v-slot="{ invalid }">
             <form @submit.prevent="submitData">
-                <validation-provider rules="required" v-slot="{ errors }">
+                <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="username">收件人姓名</label>
-                        <input type="text" class="form-control" id="username" v-model="form.username">
+                        <input type="text" class="form-control" id="username" v-model="form.username" :class="classes">
+                        <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
-                    <span class="invalid-feedback">{{ errors[0] }}</span>
                 </validation-provider>
 
-                <validation-provider rules="email | required" v-slot="{ errors,valid }">
+                <validation-provider rules="required|email" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="Email">Email</label>
-                        <input type="email" class="form-control" id="Email" v-model="form.email">
+                        <input type="email" class="form-control" id="Email" v-model="form.email" :class="classes">
+                        <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
-                    <span>{{ errors[0] }}</span>
                 </validation-provider>
 
-                <validation-provider rules="required" v-slot="{ errors }">
+                <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="tel">電話</label>
-                        <input type="tel" class="form-control" id="tel" v-model="form.tel">
+                        <input type="tel" class="form-control" id="tel" v-model="form.tel" :class="classes">
+                        <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
-                    <span>{{ errors[0] }}</span>
                 </validation-provider>
 
-                <validation-provider rules="required" v-slot="{ errors }">
+                <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="address">地址</label>
-                        <input type="text" class="form-control" id="address" v-model="form.address">
+                        <input type="text" class="form-control" id="address" v-model="form.address" :class="classes">
+                        <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
-                    <span>{{ errors[0] }}</span>
                 </validation-provider>
                 
                 <div class="form-group">
