@@ -1,5 +1,12 @@
+import zh_TW from './zh.js';
+
+//input驗證
 Vue.component('ValidationProvider',VeeValidate.ValidationProvider);
+//表單驗證
 Vue.component('ValidationObserver',VeeValidate.ValidationObserver);
+
+VeeValidate.localize('tw', zh_TW);
+
 
 // Class 設定檔案
 VeeValidate.configure({
@@ -27,12 +34,13 @@ new Vue({
     },
     methods: {
         submitData(){
-            let api =`${this.api.path}${this.api.uuid}/ec/orders`;
-            axios.post(api, this.form).then(res =>{
-                console.log(res);
-            }).catch(function(error){
-                console.log(error);
-            })
+            alert("1");
+            // let api =`${this.api.path}${this.api.uuid}/ec/orders`;
+            // axios.post(api, this.form).then(res =>{
+            //     console.log(res);
+            // }).catch(function(error){
+            //     console.log(error);
+            // })
         }
     },
 })

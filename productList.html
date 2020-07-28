@@ -17,15 +17,15 @@
                 <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="username">收件人姓名</label>
-                        <input type="text" class="form-control" id="username" v-model="form.username" :class="classes">
+                        <input type="text" name="收件人姓名" class="form-control" id="username" v-model="form.username" :class="classes">
                         <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
                 </validation-provider>
 
-                <validation-provider rules="required|email" v-slot="{ errors,classes }">
+                <validation-provider rules="required|email" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="Email">Email</label>
-                        <input type="email" class="form-control" id="Email" v-model="form.email" :class="classes">
+                        <input type="email" class="form-control" name="Email" id="Email" v-model="form.email" :class="classes">
                         <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
                 </validation-provider>
@@ -33,7 +33,7 @@
                 <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="tel">電話</label>
-                        <input type="tel" class="form-control" id="tel" v-model="form.tel" :class="classes">
+                        <input type="tel" name="電話" class="form-control" id="tel" v-model="form.tel" :class="classes">
                         <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
                 </validation-provider>
@@ -41,7 +41,7 @@
                 <validation-provider rules="required" v-slot="{ errors,classes }">
                     <div class="form-group">
                         <label for="address">地址</label>
-                        <input type="text" class="form-control" id="address" v-model="form.address" :class="classes">
+                        <input type="text" name="地址" class="form-control" id="address" v-model="form.address" :class="classes">
                         <span class="invalid-feedback">{{ errors[0] }}</span>
                     </div>
                 </validation-provider>
@@ -78,7 +78,7 @@
                     <textarea class="form-control" id="message" cols="30" rows="10" v-model="form.message"></textarea>
                 </div>
                 <div class="form-group text-right">
-                    <button type="submit" class="btn btn-primary ">送出表單</button>
+                    <button type="submit" class="btn btn-primary" :disabled="invalid">送出表單</button>
                 </div>
             </form>
         </validation-observer>
@@ -97,7 +97,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/3.3.0/vee-validate.full.min.js"></script>
-    <script src="./JS/main.js"></script>
+    <script src="./JS/main.js" type="module"></script>
 </body>
 
 </html>
